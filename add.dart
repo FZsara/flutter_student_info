@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'database.dart';
-import 'view.dart'; 
+import 'view.dart';
 
 class AddStudentPage extends StatefulWidget {
   const AddStudentPage({super.key, required Map<String, dynamic> student});
@@ -40,8 +40,7 @@ class _AddStudentPageState extends State<AddStudentPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold
-    (
+    return Scaffold(
       appBar: AppBar(
         title: const Text(
           "Student Form",
@@ -50,89 +49,91 @@ class _AddStudentPageState extends State<AddStudentPage> {
         backgroundColor: Colors.grey[300],
         centerTitle: true,
       ),
-      body: Padding(
-  padding: const EdgeInsets.all(16.0),
-  child: Center( // Center the form
-    child: Container(
-      padding: const EdgeInsets.all(16.0),
-      width: 300, // Set a fixed width
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(8.0),
+      body: SingleChildScrollView( // Wrap with SingleChildScrollView
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.all(16.0),
+              width: MediaQuery.of(context).size.width * 0.9, // Set width dynamically
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: nameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Name',
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  TextField(
+                    controller: idController,
+                    decoration: const InputDecoration(
+                      labelText: 'ID',
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  TextField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  TextField(
+                    controller: locationController,
+                    decoration: const InputDecoration(
+                      labelText: 'Location',
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  TextField(
+                    controller: instituteController,
+                    decoration: const InputDecoration(
+                      labelText: 'Institute Name',
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  TextField(
+                    controller: departmentController,
+                    decoration: const InputDecoration(
+                      labelText: 'Department',
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  TextField(
+                    controller: cgpaController,
+                    decoration: const InputDecoration(
+                      labelText: 'CGPA',
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: saveStudent,
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
+                    child: const Text(
+                      "Save/Update",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min, // Adjust height based on content
-        children: [
-          TextField(
-            controller: nameController,
-            decoration: const InputDecoration(
-              labelText: 'Name',
-              labelStyle: TextStyle(color: Colors.white),
-            ),
-            style: const TextStyle(color: Colors.white),
-          ),
-          TextField(
-            controller: idController,
-            decoration: const InputDecoration(
-              labelText: 'ID',
-              labelStyle: TextStyle(color: Colors.white),
-            ),
-            style: const TextStyle(color: Colors.white),
-          ),
-          TextField(
-            controller: emailController,
-            decoration: const InputDecoration(
-              labelText: 'Email',
-              labelStyle: TextStyle(color: Colors.white),
-            ),
-            style: const TextStyle(color: Colors.white),
-          ),
-          TextField(
-            controller: locationController,
-            decoration: const InputDecoration(
-              labelText: 'Location',
-              labelStyle: TextStyle(color: Colors.white),
-            ),
-            style: const TextStyle(color: Colors.white),
-          ),
-          TextField(
-            controller: instituteController,
-            decoration: const InputDecoration(
-              labelText: 'Institute Name',
-              labelStyle: TextStyle(color: Colors.white),
-            ),
-            style: const TextStyle(color: Colors.white),
-          ),
-          TextField(
-            controller: departmentController,
-            decoration: const InputDecoration(
-              labelText: 'Department',
-              labelStyle: TextStyle(color: Colors.white),
-            ),
-            style: const TextStyle(color: Colors.white),
-          ),
-          TextField(
-            controller: cgpaController,
-            decoration: const InputDecoration(
-              labelText: 'CGPA',
-              labelStyle: TextStyle(color: Colors.white),
-            ),
-            style: const TextStyle(color: Colors.white),
-          ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: saveStudent,
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
-            child: const Text(
-              "Save/Update",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-        ],
-      ),
-    ),
-  ),
-),
-  );
+    );
   }
 }
